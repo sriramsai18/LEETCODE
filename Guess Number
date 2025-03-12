@@ -1,0 +1,28 @@
+import random
+def secret_number():
+    return random.randint(1,100)
+
+def guess_case(number,guess):
+    if guess > (number + 10) or guess < (number -10):
+        return "Cold"
+    elif guess == number:
+        return "Right"
+    else:
+        return "Hot"
+    
+def runguess():
+     secert = secret_number()
+     while True:
+        user_guess = int(input("Enter a number from 1 to 100 :"))
+        hint = guess_case(secert,user_guess)
+        if user_guess > 100 or user_guess <= 0:
+            print("Enter correct number")
+            continue
+        if hint =="Right":
+            print("You are God damn Right..! {secret} is correct number")
+            break
+        else:
+            print(hint)
+        
+if __name__ == '__main__':
+    runguess()
